@@ -19,24 +19,27 @@ function ModalForm({ isOpen, onClose }) {
 
     const { username, email, dob, phone } = formData;
 
+    // Collect all validation errors
+    const errors = [];
+
     if (!username) {
-      alert('Please fill out the Username field.');
-      return;
+      errors.push('Please fill out the Username field.');
     }
     if (!email.includes('@')) {
-      alert('Invalid email. Please check your email address.');
-      return;
+      errors.push('Invalid email. Please check your email address.');
     }
     if (!/^\d{10}$/.test(phone)) {
-      alert('Invalid phone number. Please enter a 10-digit phone number.');
-      return;
+      errors.push('Invalid phone number. Please enter a 10-digit phone number.');
     }
     if (!dob) {
-      alert('Please select your Date of Birth.');
-      return;
+      errors.push('Please select your Date of Birth.');
+    } else if (new Date(dob) > new Date()) {
+      errors.push('Invalid Date of Birth. Date of birth cannot be in the future.');
     }
-    if (new Date(dob) > new Date()) {
-      alert('Invalid Date of Birth. Date of birth cannot be in the future.');
+
+    // If there are errors, show the first one and stop submission
+    if (errors.length > 0) {
+      alert(errors[0]); // Show the first error
       return;
     }
 
