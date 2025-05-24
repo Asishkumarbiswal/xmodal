@@ -27,7 +27,7 @@ function ModalForm({ isOpen, onClose }) {
       alert('Invalid email. Please check your email address.');
       return;
     }
-    if (phone.length !== 10 || isNaN(phone)) {
+    if (!/^\d{10}$/.test(phone)) {
       alert('Invalid phone number. Please enter a 10-digit phone number.');
       return;
     }
