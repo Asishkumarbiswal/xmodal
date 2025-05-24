@@ -37,9 +37,9 @@ function ModalForm({ isOpen, onClose }) {
       errors.push('Invalid Date of Birth. Date of birth cannot be in the future.');
     }
 
-    // If there are errors, show the first one and stop submission
+    // If there are errors, show all of them in a single alert
     if (errors.length > 0) {
-      alert(errors[0]); // Show the first error
+      alert(errors.join('\n')); // Combine all errors into a single alert
       return;
     }
 
