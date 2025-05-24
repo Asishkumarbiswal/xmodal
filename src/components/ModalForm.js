@@ -36,7 +36,7 @@ function ModalForm({ isOpen, onClose }) {
       return;
     }
     if (new Date(dob) > new Date()) {
-      alert('Invalid Date of Birth. Please select a valid date.');
+      alert('Invalid Date of Birth. Date of birth cannot be in the future.');
       return;
     }
 
