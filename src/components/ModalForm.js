@@ -34,7 +34,7 @@ function ModalForm({ isOpen, onClose }) {
     if (!dob) {
       errors.push('Please select your Date of Birth.');
     } else if (new Date(dob) > new Date()) {
-      errors.push('Invalid phone number. Please enter a 10-digit phone number.');
+      errors.push('Invalid date of birth.');
     }
 
     // If there are errors, show all of them in a single alert
