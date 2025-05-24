@@ -31,6 +31,10 @@ function ModalForm({ isOpen, onClose }) {
       alert('Invalid phone number. Please enter a 10-digit phone number.');
       return;
     }
+    if (!dob) {
+      alert('Please select your Date of Birth.');
+      return;
+    }
     if (new Date(dob) > new Date()) {
       alert('Invalid Date of Birth. Please select a valid date.');
       return;
